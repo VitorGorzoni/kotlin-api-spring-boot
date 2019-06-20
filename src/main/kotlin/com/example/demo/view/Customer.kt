@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
+import java.util.*
 
 @RestController
 class CustomerEndpoint {
@@ -14,7 +15,7 @@ class CustomerEndpoint {
     lateinit var application: CustomerApplicationImpl
 
     @GetMapping("/customer/{id}")
-    fun getCustomer(@PathVariable id: String) : CustomerEntity {
+    fun getCustomer(@PathVariable id: Int) : Optional<CustomerEntity> {
         return application.getCustomer(id)
     }
 }

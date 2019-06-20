@@ -1,6 +1,19 @@
 package com.example.demo.domain.entity
 
-public class CustomerEntity {
+import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.Table
+
+@Entity
+@Table(name="customer")
+class CustomerEntity {
+
+    @Id
+    var id: Int = 0
+        get() = field
+        set(value) {
+            field = value
+        }
 
     var name: String = ""
         get() = field
