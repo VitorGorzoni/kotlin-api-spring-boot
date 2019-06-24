@@ -12,9 +12,13 @@ import java.util.*
 class CustomerApplicationImpl : CustomerFacade {
 
     @Autowired
-    lateinit var customerRepository: CustomerRepository
+    lateinit var repository: CustomerRepository
 
     override fun getCustomer(id: Int): Optional<CustomerEntity> {
-        return customerRepository.findById(id)
+        return repository.findById(id)
+    }
+
+    override fun createCustomer(customerEntity: CustomerEntity): CustomerEntity {
+        return repository.save(customerEntity)
     }
 }
